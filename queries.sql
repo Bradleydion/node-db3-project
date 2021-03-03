@@ -16,7 +16,12 @@ WHERE o.OrderDate < '2012-08-09';
 
 
 -- Display the name and quantity of the products ordered in order with Id 10251. Sort by ProductName. Shows 3 records.
-
+SELECT p.ProductName AS ProductName,
+o.Quantity AS QuantityOrdered
+FROM "OrderDetail" AS o
+JOIN "Product" AS p ON o.ProductId = p.Id
+WHERE OrderId = 10251
+ORDER BY p.ProductName
 
 
 -- Display the OrderID, Customer's Company Name and the employee's LastName for every order. All columns should be labeled clearly. Displays 16,789 records.
